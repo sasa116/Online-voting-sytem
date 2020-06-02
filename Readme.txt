@@ -1,14 +1,12 @@
-main_project is our main project
-voting is our app 
-one project can have many apps
+Online Voting System
 
+Requirements-
+	Django
+	mysqlclient
+	phe
+	xampp
 
-1. main_project
-	This has settings.py file
-	This has manage.py file which is used to run server, migrate db etc.
-	for templates folder we have to add it in the folder where manage.py file is
-
-
-2.voting
-	This does not contain manage.py or settings.py
-	For templates we have to make a new folder inside the app folder to insert html files
+Steps to launch the project
+1. Change the path of encryption keys in voting/views.py according to your directory
+2. Run manage.py file (python manage.py runserver) before this run xampp for sql
+3. Database name is final , Registration table is name as regis , votes table is named as party
