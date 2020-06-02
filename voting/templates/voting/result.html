@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Result</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'voting/result.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Party', 'No. Of Votes',],
+        ['Party A', {{partya}}],
+        ['Party B', {{partyb}}],
+        ['Party C', {{partyc}}]
+      ]);
+
+      var options = {
+        title: 'Calculated Votes Of The Party',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Total Votes Of All Party',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Votes'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+</script>
+<style>  
+  body{
+  margin: 0;
+  padding: 0;
+  background: #2d3436;
+}
+.middle{
+  position: absolute;
+  top: 66%;
+  left: 82%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0,0,0,0.7);
+	max-width: 480px;
+	padding:80px 60px;
+	margin-top: 50px;
+	border-radius:30px;
+}
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(odd){background-color: #f2f2f2;}
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 30px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #19B3D3;
+  color: white;
+}
+
+</style>
+  </head>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>Online <span>Voting</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="#" class="logout_btn">Admin</a>
+      </div>
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <center>
+        <!--<img src="1.png" class="profile_image" alt="">#ff7675-->
+      
+      </center>
+      <a href="/"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <!--<a href="#"><i class="fas fa-cogs"></i><span>Components</span></a>
+      --> <a href="#"><i class="fas fa-table"></i><span>Contact Us</span></a>
+      <a href="#"><i class="fas fa-th"></i><span>Services</span></a>
+      <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+    </div>
+    <!--sidebar end-->
+
+    <div class="content">
+	<br><br><br>
+	<table id="customers">
+  <tr>
+	<th>Sr.No</th>
+    <th>Party</th>
+    <th>Symbol</th>
+    <th>Total Votes</th>
+  </tr>
+  <tr>
+	<td>1</td>
+    <td>Party A</td>
+    <td>ABC</td>
+    <td>{{partya}}</td>
+  </tr>
+  <tr>
+	<td>2</td>
+    <td>Party B</td>
+    <td>abs</td>
+    <td>{{partyb}}</td>
+  </tr>
+  <tr>
+	<td>3</td>
+    <td>Party C</td>
+    <td>abc</td>
+    <td>{{partyc}}</td>
+  </tr>  
+</table>
+	<div class="middle">
+	   <div id="chart_div"></div>
+    </div>
+	</div>
+
+  </body>
+</html>
+<!---->
+<!--<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Voting System</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'voting/purfect.css' %}">
+</head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawMultSeries);
+
+function drawMultSeries() {
+      var data = google.visualization.arrayToDataTable([
+        ['PARTY', '2020'],
+        ['PARTY A', {{partya}}],
+        ['PARTY B',{{partyb}}],
+        ['PARTY C',{{partyc}}]
+      ]);
+
+      var options = {
+        title: 'RESULT OF ELECTION',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'TOTAL VOTES',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'City'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+  <style>
+    td{
+      color: #97430c;
+    }
+  </style> 
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling 
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">ELECTION<span class="sr-only">(current)</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Contact</a></li> 
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Admin</a></li>       
+	   </ul>
+    </div><!-- /.navbar-collapse 
+  </div><!-- /.container-fluid
+</nav>
+<div class="container">
+<div class="row">
+<div class="col-lg-12"	>
+<center>
+<h1>RESULT</h1>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr style="background-color:#000000;color:#ffffff">
+      <th scope="col">Sr.No</th>
+      <th scope="col">Party</th>
+      <th scope="col">Sign</th>
+      <th scope="col">No.of votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>PARTY A</td>
+      <td><img src="{% static 'voting/download.jpg' %}" alt="lotus" width="80" height="70"></td>
+	  <td>{{partya}}</td>	
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>PARTY B</td>
+      <td><img src="{% static 'voting/download1.png' %}" alt="lotus" width="80" height="70"></td>
+     <td>{{partyb}}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>PARTY C</td>
+      <td><img src="{% static 'voting/download2.png' %}" alt="lotus" width="80" height="70"></td>
+	  <td>{{partyc}}</td>
+    </tr>
+    <div id="chart_div" style="width: 500px; height: 300px;"></div>
+</center>
+</div>
+</div>
+</div>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="party.css">
+  
+<script>
+/*function myFunction() {
+document.getElementById("vot2").disabled = true;
+  document.getElementById("vot1").innerHTML = "Voted"
+  document.getElementById("vot3").disabled = true;
+  confirm("Press a button!");
+}
+function myFunction1() {
+  document.getElementById("vot1").disabled = true;
+  document.getElementById("vot2").innerHTML = "Voted"
+  document.getElementById("vot3").disabled = true;
+}
+
+function myFunction2() {
+  document.getElementById("vot1").disabled = true;
+  document.getElementById("vot3").innerHTML = "Voted"
+  document.getElementById("vot2").disabled = true;
+}
+function myFunction(){
+var myWindow;
+if(confirm("Please Confirm your Vote!")){
+myWindow = window.open("thank.html", "_self");
+ 
+}
+}*/
+</script>
+  
+</head>
+<body>
+<div class="container">
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">ELECTION</a>
+	  <div class="imgcontainer">
+    <!--<img src="" alt="Avatar" class="avatar">
+  </div>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="admin.php"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> contact us</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="form-group">
+   <table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Party</th>
+      <th scope="col">Sign</th>
+      <th scope="col">No.of votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>BJP</td>
+      <td><img src="download.jpg" alt="lotus" width="80" height="70"></td>
+	  <td>10</td>	
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>NCP</td>
+      <td><img src="download1.png" alt="lotus" width="80" height="70"></td>
+     <td>8</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>MNS</td>
+      <td><img src="download2.png" alt="lotus" width="80" height="70"></td>
+	  <td>2</td>
+    </tr>
+</div>	
+  </tbody>
+</table>
+</body>
+</html>

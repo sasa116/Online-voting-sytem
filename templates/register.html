@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=password], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #19B3D3;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #19B3D3;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.middle{
+  position: absolute;
+  top: 50%;
+  left: 68%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0,0,0,0.7);
+	max-width: 780px;
+	padding:100px 60px;
+	margin-top: 50px;
+	border-radius:25px;
+}
+</style>  
+  </head>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>Online <span>Voting</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="#" class="logout_btn">Admin</a>
+      </div>
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <center>
+        <!--<img src="1.png" class="profile_image" alt="">
+        <div class="led-blue"></div><h4>Jessica</h4>-->
+      </center>
+      <a href="/"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <!--<a href="#"><i class="fas fa-cogs"></i><span>Components</span></a>
+      --><a href="#"><i class="fas fa-table"></i><span>Contact Us</span></a>
+      <a href="#"><i class="fas fa-th"></i><span>Services</span></a>
+      <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+    </div>
+    <!--sidebar end-->
+
+    <div class="content"><br><br><br><br>
+	
+<div class="container">
+  <form action = "signup/" method = "POST">
+    {% csrf_token %}
+	<label for="username">UserName</label>
+    <input type="text" id="uname" name="username" placeholder="Your username..">
+    <div> 
+	<label for="fname">First Name</label>
+    <input type="text" id="fname" name="fname" placeholder="Your first name.." required	/>
+	</div>
+
+	<label for="fname">Last Name</label>
+    <input type="text" id="lname" name="lname" placeholder="Your last name.."	required />
+
+	<label for="fname">Email</label>
+    <input type="text" id="lname" name="email" placeholder="Your email" required />
+	<label for="password">Password</label>
+    <input  type="password" id="lname" name="password1" placeholder="Your password" required />
+<div>
+  <label for="password">Confirm Password</label>
+    <input type="text"  id="lname" name="password2" placeholder="Your password" required />
+<div>
+	<label for="gender">Gender</label>
+    <select id="gender" name="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+</div>
+	<label for="">Voter ID</label>
+    <input type="text" id="" name="voter" placeholder="Voter ID" required />
+	
+	<label for="">City</label>
+    <input type="text" id="" name="city" placeholder="city" required />
+	
+	<label for="">State</label>
+    <input type="text" id="" name="state" placeholder="State" required />
+    <input type="submit" class="registerbtn" value="Register">
+  </form>
+</div>
+
+</div>
+</div>
+
+    <!--  <a href="" class="btn btn1">Vote</a>-->
+	
+	
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!---->

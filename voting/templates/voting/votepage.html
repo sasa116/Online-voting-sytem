@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Voting</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+<script>
+function myFunction(){
+var myWindow;
+if(confirm("Please Confirm your Vote!")){
+myWindow = window.open("thanks/", "_self");
+}
+}
+</script>
+<script type="text/javascript" >
+   function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+</script> 
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(odd){background-color: #f2f2f2;}
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 30px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #19B3D3;
+  color: white;
+}
+</style>
+<style>  
+  body{
+  margin: 0;
+  padding: 0;
+  background: ;
+}
+.btn{
+  position: relative;
+  display: block;
+  color: #000;
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  margin: 20px 0;
+  border: 2px solid #19B3D3;
+  padding: 14px 60px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 1s all ease;
+}
+.btn::before{
+  background: #19B3D3;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  transition: all 0.6s ease;
+}
+button{
+  background-color: #19B3D3;
+}
+.btn1::before{
+  width: 0%;
+  height: 100%;
+}
+
+.btn1:hover::before{
+  width: 100%;
+}
+
+
+.btn2::before{
+  width: 100%;
+  height: 0%;
+}
+.btn2:hover::before{
+  height: 100%;
+}
+</style>
+<style> 
+.led-blue {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #4AB;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #006 0 -1px 9px, #06F 0 2px 14px;
+}
+</style>
+  </head>
+  <body>
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>Online <span>Voting</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="#" class="logout_btn">Logout</a>
+      </div>
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <center>
+        <!--<img src="strange.jpg" class="profile_image" alt="errr">-->
+        <div class="led-blue"></div><h4>{{username}}</h4>
+      </center>
+      <a href="/"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a href="#"><i class="fas fa-table"></i><span>Contact Us</span></a>
+      <a href="#"><i class="fas fa-th"></i><span>Services</span></a>
+      <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+    </div>
+    <!--sidebar end-->
+    <div class="content">
+	<br><br><br>
+	<table id="customers">
+  <tr>
+	<th>Sr.No</th>
+    <th>Party</th>
+    <th>Symbol</th>
+    <th>Choose Your Vote</th>
+  </tr>
+  <tr>
+	<td>1</td>
+    <td>Party A</td>
+    <td>ABC</td>
+    <td><form action="thanks/" method="POST"><button type="submit" id ="vot1" name ="par_a" value="1"  onclick="myFunction()" class="btn btn2">Vote</button>{% csrf_token %}</form></td>
+    
+  </tr>
+  <tr>
+	<td>2</td>
+    <td>Party B</td>
+    <td>abs</td>
+    <td><form action="thanks/" method="POST"><button type="submit" id ="vot1" name ="par_a" value="2" onclick="myFunction()" class="btn btn2">Vote</button>{% csrf_token %}</form></td>
+     
+    </tr>
+  <tr>
+	<td>3</td>
+    <td>Party C</td>
+    <td>abc</td>
+    <td><form action="thanks/" method="POST"><button type="submit" id ="vot1" name ="par_a" value="3" onclick="myFunction()" class="btn btn2">Vote</button>{% csrf_token %}</form></td>
+    </tr>  
+</table>
+
+	</div>
+
+  </body>
+</html>
+<!---->
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Votepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'voting/party.css' %}">
+  <script type="text/javascript" >
+    function preventBack(){window.history.forward();}
+     setTimeout("preventBack()", 0);
+     window.onunload=function(){null};
+ </script>  
+ 
+<script>
+/*function myFunction() {
+document.getElementById("vot2").disabled = true;
+  document.getElementById("vot1").innerHTML = "Voted"
+  document.getElementById("vot3").disabled = true;
+  confirm("Press a button!");
+}
+function myFunction1() {
+  document.getElementById("vot1").disabled = true;
+  document.getElementById("vot2").innerHTML = "Voted"
+  document.getElementById("vot3").disabled = true;
+}
+
+function myFunction2() {
+  document.getElementById("vot1").disabled = true;
+  document.getElementById("vot3").innerHTML = "Voted"
+  document.getElementById("vot2").disabled = true;
+}*/
+function myFunction(){
+var myWindow;
+if(confirm("Please Confirm your Vote!")){
+myWindow = window.open("thanks/", "_self");
+ 
+}
+}
+</script>
+  
+</head>
+<body>
+
+<div class="container">
+  <h2>Please Enter Your Votes</h2>
+   <table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Sr.No</th>
+      <th scope="col">Party</th>
+      <th scope="col">Sign</th>
+      <th scope="col">Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>PARTY A</td>
+      <td>lOTUS</td>
+      <td><form action="thanks/" method="POST"><button type="submit" name ="par_a" value="1" class="btn btn-primary" onclick="myFunction()">Vote</button></td>
+        {% csrf_token %}
+      </form>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>PARTY B</td>
+      <td>PALM</td>
+      <td><form action="thanks/" method="POST"><button type="submit" name ="par_a" value="2" class="btn btn-primary" onclick="myFunction()">Vote</button></td>
+      {% csrf_token %}
+    </form>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>PARTY C</td>
+      <td>TRAIN</td>
+	  <td><form action="thank/" method="POST"><button type="submit" name ="par_a" value="3" class="btn btn-primary" onclick="myFunction()">Vote</button></td>
+    {% csrf_token %}
+  </form>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

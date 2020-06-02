@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>About</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <style>
+  .middle{
+  position: absolute;
+  top: 40%;
+  left: 58%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0,0,0,0.7);
+	max-width: 780px;
+	padding:100px 60px;
+	margin-top: 50px;
+	border-radius:25px;
+}
+.registerbtn {
+  background-color: #19B3D3;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+}
+  </style>
+  </head>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>Online <span>Voting</span></h3>
+      </div>
+      <!--<div class="right_area">
+        <a href="#" class="logout_btn"></a>
+      </div>
+-->  </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <center>
+        <!--<img src="" class="profile_image" alt="">-->
+        <div class="led-blue"></div><h4></h4>
+      </center>
+      <a href="/"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a href="#"><i class="fas fa-table"></i><span>Contact us</span></a>
+      <a href="#"><i class="fas fa-th"></i><span>Services</span></a>
+      <a href="/About/"><i class="fas fa-info-circle"></i><span>About</span></a>
+    </div>
+    <!--sidebar end-->
+
+    <div class="content">
+	<div class="middle">
+	<h1 style="color:#fff">This is our final year Project</h1>
+	
+	</div>
+</div>
+  </body>
+</html>

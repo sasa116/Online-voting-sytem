@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>VOTE</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script type="text/javascript" >
+      function preventBack(){window.history.forward();}
+       setTimeout("preventBack()", 0);
+       window.onunload=function(){null};
+   </script>
+<style> 
+.led-red {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #940;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #600 0 -1px 9px, #F00 0 2px 12px;
+}
+
+.led-yellow {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #A90;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #660 0 -1px 9px, #DD0 0 2px 12px;
+}
+
+.led-green {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #690;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #460 0 -1px 9px, #7D0 0 2px 12px;
+}
+
+.led-blue {
+    margin: 20px auto;
+    width: 12px;
+    height: 12px;
+    background-color: #4AB;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px, inset #006 0 -1px 9px, #06F 0 2px 14px;
+}
+</style>
+<style>
+body{
+  margin: 0;
+  padding: 0;
+  background: #2d3436;
+}
+.middle{
+  position: absolute;
+  top: 50%;
+  left: 57%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0,0,0,0.7);
+	max-width: 780px;
+	padding:100px 60px;
+	margin-top: 50px;
+	border-radius:25px;
+}
+.btn{
+  position: relative;
+  display: block;
+  color: #000;
+  font-size: 14px;
+  font-family: "montserrat";
+  text-decoration: none;
+  margin: 20px 0;
+  border: 2px solid #19B3D3;
+  padding: 14px 60px;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 1s all ease;
+}
+.btn::before{
+  background: #19B3D3;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  transition: all 0.6s ease;
+}
+button{background-color: #19B3D3;}
+.btn1::before{
+  width: 0%;
+  height: 100%;
+}
+
+.btn1:hover::before{
+  width: 100%;
+}
+
+
+.btn2::before{
+  width: 100%;
+  height: 0%;
+}
+.btn2:hover::before{
+  height: 100%;
+}
+</style>
+  
+</style>
+</head>
+<body>
+  {% for message in messages %}
+    <style>
+      .alert{
+  padding: 20px;
+  background-color: #36f4a5;
+  color: white;
+}
+
+.closebtn{
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover{
+  color: black;
+}
+
+    </style>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>{{ message }}</strong> 
+      
+  </div>
+{% endfor %}
+  
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>Online <span>Voting</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="#" class="logout_btn">Logout</a>
+      </div>
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <center>
+        <img src="strange.jpg" class="profile_image" alt="">
+        <div class="led-blue"></div><h4>{{username}}</h4>
+      </center>
+      <a href="/"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+     <!-- <a href="#"><i class="fas fa-cogs"></i><span>Components</span></a>
+     --><a href="#"><i class="fas fa-table"></i><span>Contact Us</span></a>
+      <a href="#"><i class="fas fa-th"></i><span>Services</span></a>
+      <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+
+    </div>
+    <!--sidebar end-->
+
+    <div class="content"></div>
+	<div class="middle">
+    <form action="votingpage/" method="POST">
+      {% csrf_token %}
+    <button style.display='block' style="width:auto;" class="btn btn1">Vote</button></a></form>
+	</div>
+  </body>
+</html>
+<!---->
+<!--!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  {%load static%}
+  <link rel="stylesheet" type="text/css" href="{%static 'css/purfect.css'%}">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #3399ff;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+  {% for message in messages %}
+
+  <div class="alert alert-success">
+      <a class="close" href="#" data-dismiss="alert">×</a>
+
+      {{ message }}
+
+  </div>
+{% endfor %}
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">ELECTION</a>
+	  <div class="imgcontainer">
+    <!--<img src="" alt="Avatar" class="avatar">
+  </div>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> contact us</a></li>
+    </ul>
+    
+  </div>
+</nav>
+
+<h2>online voting System</h2>
+<center>
+<div id="content">	
+
+<form action="votingpage/" method="POST">
+  {% csrf_token %}
+<button style.display='block' style="width:250px;">Vote</button><br>
+</form>
+</div>
+</center>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="checklogin/" method="post">
+    {% csrf_token %}
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="name" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="pass" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>

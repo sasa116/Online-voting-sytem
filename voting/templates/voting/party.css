@@ -1,0 +1,23 @@
+body{
+	background: url('back1.jpeg'); 
+    background-size: cover;
+    background-position:center;
+    text-align: center;
+
+}
+#content{
+	background-color: rgba(0,0,0,0.7);
+	max-width: 480px;
+	padding:100px 10px;
+	margin-top: 50px;
+}
+#footer{
+width:1500px; 
+margin:0 auto; 
+margin-top:150px;
+background:#f9dec7;
+}
+
+label{
+color: #9999ff;
+}

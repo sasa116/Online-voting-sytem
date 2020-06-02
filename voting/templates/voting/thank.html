@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Thank</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/home.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <style>
+  .middle{
+  position: absolute;
+  top: 40%;
+  left: 58%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(0,0,0,0.7);
+	max-width: 780px;
+	padding:100px 60px;
+	margin-top: 50px;
+	border-radius:25px;
+}
+.registerbtn {
+  background-color: #19B3D3;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+}
+  </style>
+  </head>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>Online <span>Voting</span></h3>
+      </div>
+      <!--<div class="right_area">
+        <a href="#" class="logout_btn"></a>
+      </div>
+-->  </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <center>
+        <!--<img src="" class="profile_image" alt="">-->
+        <div class="led-blue"></div><h4>Jess</h4>
+      </center>
+      <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a href="#"><i class="fas fa-table"></i><span>Contact us</span></a>
+      <a href="#"><i class="fas fa-th"></i><span>Services</span></a>
+      <a href="About/"><i class="fas fa-info-circle"></i><span>About</span></a>
+    </div>
+    <!--sidebar end-->
+
+    <div class="content">
+	<div class="middle">
+	<h1 style="color:#fff">Thank you for casting Votes</h1>
+	<a href="/"><input type="submit" class="registerbtn" value="Go back to Home"></input></a>>
+	</div>
+</div>
+  </body>
+</html>
+
+<!---->
+<!--<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Voting System</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{%static 'voting/party.css'%}">
+
+<script type="text/javascript" >
+  function preventBack(){window.history.forward();}
+   setTimeout("preventBack()", 0);
+   window.onunload=function(){null};
+</script>  
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display 
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling 
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">ELECTION<span class="sr-only">(current)</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Contact</a></li> 
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>Admin</a></li>       
+	   </ul>
+    </div><!-- /.navbar-collapse 
+  </div><!-- /.container-fluid 
+</nav>
+<div class="container">
+<div class="row">
+<div class="col-lg-12"	>
+<form action="/" method="post">
+  {% csrf_token %}
+<center>
+  <h1 style="color :#b93e3e;">Thank you for Casting Vote</h1>	
+  <a href="/"><button id ="hm" class="btn btn-default btn-lg">Go back to the homepage</button>
+
+</form>
+</center>
+</div>
+</div>
+</div>
+<!--<div id="footer"> 
+  <div class="bottom_addr">&copy; 2020 Simple Django Polling System. All Rights Reserved</div>
+</div>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

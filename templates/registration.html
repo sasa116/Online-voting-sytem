@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Voting System</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{%load static%}
+<link rel="stylesheet" type="text/css" href="{%static 'css/purfect.css'%}">
+</head>
+<body>
+  {% for message in messages %}
+
+  <div class="alert alert-success">
+      <a class="close" href="#" data-dismiss="alert">×</a>
+
+      {{ message }}
+
+  </div>
+{% endfor %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">ELECTION</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class=""></span></a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> contact us</a></li>
+    </ul>
+  </div>
+</nav>
+<center>
+<div id="content">	
+<form action = "signup/" method = "POST">
+  {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">UserName</label>
+      <input type="username" class="form-control" id="inputEmail4" name="username" placeholder="Enter username" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">First Name</label>
+      <input type="username" class="form-control" id="inputEmail4" name="fname" placeholder="Enter first name" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Last Name</label>
+      <input type="username" class="form-control" id="inputEmail4" name="lname" placeholder="Enter last name" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="email id" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="inputPassword4" name="password1" placeholder="Password" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Confirm Password</label>
+      <input type="password" class="form-control" id="inputPassword4" name="password2" placeholder="Password" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Gender</label>
+    <select id="inputState" name="gender" class="form-control" required>
+        <option selected>Choose...</option>
+        <option>Male</option>
+		<option>Female</option>
+		<option>Others</option>
+     </select>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Voter ID</label>
+    <input type="text" class="form-control" name="voter" placeholder="Enter Voter ID Number" required>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" name="city" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" name="state" class="form-control" required />
+        <option selected>Choose...</option>
+        <option>Gujarat</option>
+		<option>Maharashtra</option>
+		<option>Hariyana</option>
+		<option>Madhya Pradesh</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip" required>
+    </div>
+  </div>
+  <!-- <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div> -->
+  <button type="submit" class="btn btn-primary">Register</button>
+</form></center>
+</div>
+<div id="footer"> 
+  <div class="bottom_addr">&copy; 2020 Django Polling System. All Rights Reserved</div>
+</div>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
